@@ -1,0 +1,18 @@
+/* eslint-disable no-undef */
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path');
+
+const { merge } = require('webpack-merge');
+const config = require('./webpack.config');
+
+module.exports = merge(config, {
+  mode: 'production',
+
+  output: {
+    path: path.join(__dirname, 'public')
+  },
+
+  plugins: [
+    new CleanWebpackPlugin()
+  ]
+});
